@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@monitoreo-inteligente/proyecto-2": ["libs/proyecto-2/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

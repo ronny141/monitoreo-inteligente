@@ -1,0 +1,9 @@
+{
+  "name": "proyecto-2",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/proyecto-2/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project proyecto-2 --web",
+  "targets": {}
+}
