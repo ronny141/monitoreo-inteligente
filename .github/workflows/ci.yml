@@ -30,7 +30,7 @@ jobs:
           cache: 'npm'
 
       - name: Run tests for proyecto-2
-        run: npx run test:proyecto-2
+        run: npx run test proyecto-2
 
       - run: npm ci --legacy-peer-deps
       - uses: nrwl/nx-set-shas@v4
