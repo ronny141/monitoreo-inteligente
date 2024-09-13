@@ -1,5 +1,6 @@
 import { PopupsProvider, usePopups } from '@monitoreo-inteligente/proyecto-2';
 import { ComponentA, ComponentB } from '../components';
+import { Button, Container, Grid, Grid2 } from '@mui/material'; 
 export function Dashboard() {
   const { addPopup, closeAllPopups } = usePopups();
 
@@ -34,25 +35,25 @@ export function Dashboard() {
     closeAllPopups();
   };
   return (
-    <div>
+    <Container>
       <div>
         <h1>Ronny Contreras</h1>
         <button onClick={handleCloseAll}>Cerrar todos</button>
       </div>
 
-      <div
+      <Grid2
         style={{ width: '700px', height: '700px', border: '1px solid black' }}
       >
         <PopupsProvider>
-          <button onClick={handleAddPopupA} style={{ margin: '10px' }}>
+          <Button variant='contained' onClick={handleAddPopupA} style={{ margin: '10px' }}>
             Agregar Popup A
-          </button>
-          <button onClick={handleAddPopupB} style={{ margin: '10px' }}>
+          </Button>
+          <Button  variant='contained' onClick={handleAddPopupB} style={{ margin: '10px' }}>
             Agregar Popup B
-          </button>
+          </Button>
         </PopupsProvider>
-      </div>
-    </div>
+      </Grid2>
+    </Container>
   );
 }
 
