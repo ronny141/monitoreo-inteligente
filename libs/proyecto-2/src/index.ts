@@ -1,1 +1,2 @@
-export * from './lib/proyecto-2';
+export * from './lib/hooks';
+export { default as PopupsProvider } from './lib/PopupsProvider';
