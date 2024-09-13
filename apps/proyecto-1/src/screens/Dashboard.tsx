@@ -1,6 +1,6 @@
 import { PopupsProvider, usePopups } from '@monitoreo-inteligente/proyecto-2';
 export function Dashboard() {
-  const { addPopup } = usePopups();
+  const { addPopup, closeAllPopups } = usePopups();
 
   const handleAddPopupA = () => {
     const id = `popup-a-${Date.now()}`;
@@ -27,9 +27,16 @@ export function Dashboard() {
       zIndex: Date.now(),
     });
   };
+  const handleCloseAll = () => {
+    closeAllPopups();
+  };
   return (
     <div>
-      <h1>Ronny Contreras</h1>
+      <div>
+        <h1>Ronny Contreras</h1>
+        <button onClick={handleCloseAll}>Cerrar todos</button>
+      </div>
+
       <div
         style={{ width: '700px', height: '700px', border: '1px solid black' }}
       >
