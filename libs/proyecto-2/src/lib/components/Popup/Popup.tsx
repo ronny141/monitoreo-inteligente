@@ -65,7 +65,7 @@ const Popup: React.FC<PopupProps> = ({ id }) => {
       onDragEnd={handleDragEnd}
       dragHandle={titleRef}
     >
-      <div style={{ height: '100%' }}> {/* Asegurar que el contenedor ocupe el 100% del Draggable */}
+      <div style={{ height: '100%' }}> 
         <div
           ref={titleRef}
           style={{

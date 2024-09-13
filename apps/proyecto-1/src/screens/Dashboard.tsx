@@ -1,6 +1,6 @@
 import { PopupsProvider, usePopups } from '@monitoreo-inteligente/proyecto-2';
 import { ComponentA, ComponentB } from '../components';
-import { Button, Container, Grid, Grid2 } from '@mui/material'; 
+import { Button, Container, Grid2 } from '@mui/material';
 export function Dashboard() {
   const { addPopup, closeAllPopups } = usePopups();
 
@@ -14,7 +14,7 @@ export function Dashboard() {
       width: 250,
       height: 200,
       zIndex: Date.now(),
-      component: <ComponentA/>
+      component: <ComponentA />,
     });
   };
 
@@ -28,7 +28,7 @@ export function Dashboard() {
       width: 200,
       height: 250,
       zIndex: Date.now(),
-      component: <ComponentB/>
+      component: <ComponentB />,
     });
   };
   const handleCloseAll = () => {
@@ -36,19 +36,37 @@ export function Dashboard() {
   };
   return (
     <Container>
-      <div>
-        <h1>Ronny Contreras</h1>
-        <button onClick={handleCloseAll}>Cerrar todos</button>
-      </div>
+      <Grid2
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '10px',
+          padding: '10px',
+        }}
+      >
+        <h1 style={{ margin: 0 }}>Ronny Contreras</h1>
+        <Button variant="contained" onClick={handleCloseAll}>
+          Cerrar todos
+        </Button>
+      </Grid2>
 
       <Grid2
-        style={{ width: '700px', height: '700px', border: '1px solid black' }}
+        style={{ padding: '10px', width: '700px', height: '700px', border: '1px solid black' }}
       >
         <PopupsProvider>
-          <Button variant='contained' onClick={handleAddPopupA} style={{ margin: '10px' }}>
+          <Button
+            variant="contained"
+            onClick={handleAddPopupA}
+            style={{ margin: '10px' }}
+          >
             Agregar Popup A
           </Button>
-          <Button  variant='contained' onClick={handleAddPopupB} style={{ margin: '10px' }}>
+          <Button
+            variant="contained"
+            onClick={handleAddPopupB}
+            style={{ margin: '10px' }}
+          >
             Agregar Popup B
           </Button>
         </PopupsProvider>
