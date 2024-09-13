@@ -8,11 +8,13 @@ interface Popup {
   width: number;
   height: number;
   zIndex: number;
+  component: React.ReactNode;
 }
 
 interface PopupStore {
   popups: { [id: string]: Popup };
   highestZIndex: number;
+  component: React.ReactNode;
   addPopup: (popup: Popup) => void;
   setPopupPosition: (id: string, left: number, top: number) => void;
   bringPopupToFront: (id: string) => void;
@@ -23,6 +25,7 @@ interface PopupStore {
 export const usePopupStore = create<PopupStore>((set) => ({
   popups: {},
   highestZIndex: 1,
+  component: null,
 
   addPopup: (popup) =>
     set((state) => ({

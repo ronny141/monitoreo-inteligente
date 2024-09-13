@@ -1,4 +1,5 @@
 import { PopupsProvider, usePopups } from '@monitoreo-inteligente/proyecto-2';
+import { ComponentA, ComponentB } from '../components';
 export function Dashboard() {
   const { addPopup, closeAllPopups } = usePopups();
 
@@ -9,9 +10,10 @@ export function Dashboard() {
       title: `Popup A`,
       left: 100,
       top: 100,
-      width: 300,
+      width: 250,
       height: 200,
       zIndex: Date.now(),
+      component: <ComponentA/>
     });
   };
 
@@ -22,9 +24,10 @@ export function Dashboard() {
       title: `Popup B`,
       left: 300,
       top: 300,
-      width: 400,
+      width: 200,
       height: 250,
       zIndex: Date.now(),
+      component: <ComponentB/>
     });
   };
   const handleCloseAll = () => {

@@ -8,9 +8,20 @@ interface PopupProps {
 }
 
 const Popup: React.FC<PopupProps> = ({ id }) => {
-  const { title, left, top, width, height, zIndex } = useStore(usePopupStore, (state) => state.popups[id]);
-  const setPopupPosition = useStore(usePopupStore, (state) => state.setPopupPosition);
-  const bringPopupToFront = useStore(usePopupStore, (state) => state.bringPopupToFront);
+  const { title, left, top, width, height, zIndex, component } = useStore(
+    usePopupStore,
+    (state) => state.popups[id]
+  );
+
+  console.log(height);
+  const setPopupPosition = useStore(
+    usePopupStore,
+    (state) => state.setPopupPosition
+  );
+  const bringPopupToFront = useStore(
+    usePopupStore,
+    (state) => state.bringPopupToFront
+  );
   const closePopup = useStore(usePopupStore, (state) => state.closePopup);
   console.log('Popup id:', id);
   const [isDragging, setIsDragging] = useState(false);
@@ -22,16 +33,17 @@ const Popup: React.FC<PopupProps> = ({ id }) => {
     bringPopupToFront(id);
   };
 
-  const handleDragEnd = useCallback((newLeft: number, newTop: number) => {
-    setIsDragging(false);
-    setPopupPosition(id, newLeft, newTop);
-  }, [id, setPopupPosition]);
+  const handleDragEnd = useCallback(
+    (newLeft: number, newTop: number) => {
+      setIsDragging(false);
+      setPopupPosition(id, newLeft, newTop);
+    },
+    [id, setPopupPosition]
+  );
 
   const handleClick = () => {
-    
     bringPopupToFront(id);
   };
-
   return (
     <Draggable
       style={{
@@ -42,8 +54,10 @@ const Popup: React.FC<PopupProps> = ({ id }) => {
         zIndex,
         position: 'absolute',
         backgroundColor: '#fff',
-        border: isDragging ? '2px solid red' : '1px solid #ccc',
-        boxShadow: isDragging ? '0 10px 20px rgba(0, 0, 0, 0.5)' : '0 4px 8px rgba(0, 0, 0, 0.2)',
+        border: isDragging ? '2px solid #F7E928' : '1px solid #ccc',
+        boxShadow: isDragging
+          ? '0 10px 20px rgba(0, 0, 0, 0.5)'
+          : '0 4px 8px rgba(0, 0, 0, 0.2)',
         opacity: isDragging ? 0.9 : 1,
         transition: 'all 0.2s ease-in-out',
       }}
@@ -51,7 +65,7 @@ const Popup: React.FC<PopupProps> = ({ id }) => {
       onDragEnd={handleDragEnd}
       dragHandle={titleRef}
     >
-      <div> 
+      <div style={{ height: '100%' }}> {/* Asegurar que el contenedor ocupe el 100% del Draggable */}
         <div
           ref={titleRef}
           style={{
@@ -69,13 +83,15 @@ const Popup: React.FC<PopupProps> = ({ id }) => {
         </div>
         <div
           style={{
-            padding: '10px',
-            height: `calc(${height}px - 40px)`,
-            overflowY: 'auto',
+            width: '100%',
+            height: `calc(100% - 42px)`,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
           onClick={handleClick}
         >
-          Contenido del popup
+          {component}
         </div>
       </div>
     </Draggable>
