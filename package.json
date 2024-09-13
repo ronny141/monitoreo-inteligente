@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve proyecto-1"
+    "start": "nx serve proyecto-1",
+    "test:proyecto-2": "nx test proyecto-2"
   },
   "private": true,
   "dependencies": {
