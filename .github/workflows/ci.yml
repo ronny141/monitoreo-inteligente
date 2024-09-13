@@ -29,6 +29,9 @@ jobs:
           node-version: 20
           cache: 'npm'
 
+      - name: Install dependencies
+        run: npm install
+        
       - name: Run tests for proyecto-2
         run: npx nx test proyecto-2
 
