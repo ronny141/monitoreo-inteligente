@@ -52,7 +52,13 @@ export function Dashboard() {
       </Grid2>
 
       <Grid2
-        style={{ padding: '10px', width: '700px', height: '700px', border: '1px solid black' }}
+        style={{ 
+          padding: '10px', 
+          width: '100%', 
+          height: 'calc(100vh - 100px)', 
+          border: '1px solid black',
+          overflow: 'hidden', 
+        }}
       >
         <PopupsProvider>
           <Button
