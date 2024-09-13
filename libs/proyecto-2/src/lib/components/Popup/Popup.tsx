@@ -13,7 +13,6 @@ const Popup: React.FC<PopupProps> = ({ id }) => {
     (state) => state.popups[id]
   );
 
-  console.log(height);
   const setPopupPosition = useStore(
     usePopupStore,
     (state) => state.setPopupPosition
@@ -23,7 +22,7 @@ const Popup: React.FC<PopupProps> = ({ id }) => {
     (state) => state.bringPopupToFront
   );
   const closePopup = useStore(usePopupStore, (state) => state.closePopup);
-  console.log('Popup id:', id);
+  console.log('Popup title: ', title, ' id: ', id);
   const [isDragging, setIsDragging] = useState(false);
 
   const titleRef = useRef<HTMLDivElement | null>(null);

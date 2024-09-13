@@ -15,9 +15,9 @@ const ComponentB: React.FC = () => {
       <h3 style={{ marginTop: '5px' }}>Bulma</h3>
       <img
         src="https://dragonball-api.com/characters/bulma.webp"
-        alt="Dragon Ball Z Poster"
+        alt="Bulma"
         loading="lazy"
-        style={{ maxWidth: '100%', height: `calc(100% - 42px)`, borderRadius: '10px' }} // Ajustar imagen al 100% del ancho disponible
+        style={{ maxWidth: '100%', height: `calc(100% - 42px)`, borderRadius: '10px' }} 
       />
     </div>
   );

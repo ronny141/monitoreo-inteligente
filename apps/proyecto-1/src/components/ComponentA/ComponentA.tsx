@@ -15,7 +15,7 @@ const ComponentA: React.FC = () => {
       <h3 style={{ marginTop: '5px' }}>Bardock</h3>
       <img
         src="https://dragonball-api.com/characters/Bardock_Artwork.webp"
-        alt="Dragon Ball Z Poster"
+        alt="Bardock"
         loading="lazy" // lazy loading para mejorar el rendimiento propuesto
         style={{ maxWidth: '100%', height: `calc(100% - 42px)`, borderRadius: '10px' }} 
       />
